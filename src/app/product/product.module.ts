@@ -3,10 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ProductItemComponent } from './components/product-item/product-item.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './container/product.component';
-
+import { StoreModule } from "@ngrx/store";
+import { productReducer } from './product-store/product-reducer';
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    StoreModule.forFeature('products', productReducer)
   ],
   declarations: [ProductItemComponent, ProductListComponent, ProductComponent]
 })
