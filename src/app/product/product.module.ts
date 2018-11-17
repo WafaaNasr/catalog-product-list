@@ -9,6 +9,7 @@ import { StoreModule } from "@ngrx/store";
 import { productReducer } from './store/product-reducer';
 import { BehaviorSubject } from 'rxjs';
 import { ProductService } from './services/product.service';
+import { SharedModule } from '../shared/shared.module';
 
 
 //export const SERVER_URL = new InjectionToken<string>('SERVERURL');
@@ -18,7 +19,8 @@ import { ProductService } from './services/product.service';
   imports: [
     CommonModule,
     StoreModule.forFeature('products', productReducer),
-    EffectsModule.forFeature([ProductEffectsService])
+    EffectsModule.forFeature([ProductEffectsService]),
+    SharedModule
   ],
   declarations: [ProductItemComponent, ProductListComponent, ProductComponent],
   providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:3000' },

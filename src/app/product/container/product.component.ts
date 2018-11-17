@@ -15,7 +15,6 @@ export class ProductComponent implements OnInit {
   constructor(private productDispatcher: ProductDispatcherService, private productSelector: ProductSelectorService) { }
 
   ngOnInit() {
-    debugger;
     this.productDispatcher.dispatchLoadAll();
     this.products$ = this.productSelector.getProducts()
   }

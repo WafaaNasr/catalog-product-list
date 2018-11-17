@@ -13,7 +13,6 @@ export class ProductService {
     this.serverUrl = serverUrl;
   }
   loadAllProducts(): Observable<Array<Product>> {
-    debugger;
     return this.http.get<Array<Product>>(`${this.serverUrl}/products`);
   }
 }

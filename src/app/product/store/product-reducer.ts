@@ -31,7 +31,7 @@ export function productReducer(
                 loading: false,
                 hasError: true,
                 entities: [],
-                productsFilter: {},
+                productsFilter: null,
                 error: action.payload,
                 normalizedEntities: null
             });

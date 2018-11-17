@@ -1,1 +1,29 @@
+
 product ID : {{product.id}}
+<mat-card class="example-card">
+    <!-- <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title>Shiba Inu</mat-card-title>
+        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
+    </mat-card-header> -->
+    <img mat-card-image src="{{product.image}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <strong>
+            <p>Name: {{product.name}}</p>
+            <p>Slug: {{product.slug}}</p>
+            <p>Brand: {{product.brand}}</p>
+            <p>Type: {{product.type}}</p>
+            <p>Price: {{product.price}}</p>
+            <p>Size: {{product.size}}</p>
+            <p>Rating: {{product.rating}}</p>
+        </strong>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary">Primary</button>
+        <button mat-raised-button color="accent">Accent</button>
+    </mat-card-actions>
+</mat-card>
+
+
+
+
