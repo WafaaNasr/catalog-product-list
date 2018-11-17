@@ -118,5 +118,10 @@
       }
     }
   },
-  "defaultProject": "catalog-product-list"
+  "defaultProject": "catalog-product-list",
+  "schematics": {
+    "@schematics/angular:component": {
+      "styleext": "scss"
+    }
+  }
 }
