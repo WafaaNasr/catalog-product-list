@@ -4,7 +4,7 @@ import { ProductItemComponent } from './components/product-item/product-item.com
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './container/product.component';
 import { StoreModule } from "@ngrx/store";
-import { productReducer } from './product-store/product-reducer';
+import { productReducer } from './store/product-reducer';
 @NgModule({
   imports: [
     CommonModule,
