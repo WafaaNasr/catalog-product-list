@@ -6,7 +6,8 @@ export class ProductState implements IBaseState<Product> {
     loading: boolean;
     hasError: boolean;
     error: any;
-    entities: Product | Product[];
+    entities: Array<Product>;
+    productsFilter: ProductsFilter;
     normalizedEntities?: { [id: number]: Product; };
 }
 

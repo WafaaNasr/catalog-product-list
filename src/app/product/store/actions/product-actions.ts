@@ -9,7 +9,7 @@ export class ProductListLoadAll implements Action {
 
 export class ProductListLoadAllSucess implements Action {
     type: ProductListActionTypes.ProductListLoadAllSuccess;
-    constructor(private payload: Array<Product>) { }
+    constructor(public payload: Array<Product>) { }
 }
 
 
