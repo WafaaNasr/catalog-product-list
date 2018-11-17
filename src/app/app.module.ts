@@ -8,10 +8,9 @@ import { ProductModule } from './product/product.module';
 
 // Store
 import { StoreModule } from '@ngrx/store';
-import { StoreRouterConnectingModule } from "@ngrx/router-store";
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducer } from './store/app-reducer';
-
+import { EffectsModule } from "@ngrx/effects";
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +20,7 @@ import { appReducer } from './store/app-reducer';
     RouterModule,
     ProductModule,
     StoreModule.forRoot(appReducer),
-    StoreRouterConnectingModule,
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument()
   ],
   providers: [],

@@ -1,5 +1,5 @@
-import { ProductListLoadAll } from './actions/product-actions';
-import { Product } from './../models/product';
+import { ProductListLoadAll } from '../actions/product-actions';
+import { Product } from '../../models/product';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
 
