@@ -1,1 +1,3 @@
-<app-product-item></app-product-item>
+<ng-container *ngFor="let product of productList$ | async">
+    <app-product-item [product]="product"></app-product-item>
+</ng-container>

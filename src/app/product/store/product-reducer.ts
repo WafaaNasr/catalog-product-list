@@ -25,9 +25,17 @@ export function productReducer(
                 normalizedEntities: null,
             };
         }
-
-        default:
-            break;
+        case ProductListActionTypes.ProductListError: {
+            return Object.assign({}, state, {
+                loaded: true,
+                loading: false,
+                hasError: true,
+                entities: [],
+                productsFilter: {},
+                error: action.payload,
+                normalizedEntities: null
+            });
+        }
     }
 
     return state

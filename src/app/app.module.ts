@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from "@ngrx/store-devtools";
 import { appReducer } from './store/app-reducer';
 import { EffectsModule } from "@ngrx/effects";
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent
@@ -21,7 +22,8 @@ import { EffectsModule } from "@ngrx/effects";
     ProductModule,
     StoreModule.forRoot(appReducer),
     EffectsModule.forRoot([]),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

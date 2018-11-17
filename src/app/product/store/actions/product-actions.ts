@@ -4,16 +4,23 @@ import { Product } from "../../models/product";
 
 
 export class ProductListLoadAll implements Action {
-    type: ProductListActionTypes.ProductListLoadAll;
+    type = ProductListActionTypes.ProductListLoadAll;
+    constructor(public payload?: any) { }
 }
 
 export class ProductListLoadAllSucess implements Action {
-    type: ProductListActionTypes.ProductListLoadAllSuccess;
+    type = ProductListActionTypes.ProductListLoadAllSuccess;
     constructor(public payload: Array<Product>) { }
 }
 
 
+export class ProductListError implements Action {
+    type = ProductListActionTypes.ProductListError;
+    constructor(public payload: any) { }
+}
+
 
 export type ProductListActions =
     ProductListLoadAll
-    | ProductListLoadAllSucess;
+    | ProductListLoadAllSucess
+    | ProductListError;
