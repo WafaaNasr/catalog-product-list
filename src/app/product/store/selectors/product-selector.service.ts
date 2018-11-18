@@ -15,6 +15,8 @@ export class ProductSelectorService extends StoreSelectors<Product>{
   private productsFilter;
   private shownProducts;
   private productsCount;
+  private productsBrands;
+  private productsTypes;
   //#endregion
 
   // Proberties
@@ -27,6 +29,8 @@ export class ProductSelectorService extends StoreSelectors<Product>{
     this.productsSelector = this.getEntities(this.featureSelector) as Observable<Array<Product>>;
     this.shownProducts = this.getProperty(this.featureSelector, 'shownEntities');
     this.productsCount = this.getProperty(this.featureSelector, 'entitiesCount');
+    this.productsBrands = this.getProperty(this.featureSelector, 'productBrands');
+    this.productsTypes = this.getProperty(this.featureSelector, 'productTypes');
   }
 
 
@@ -38,5 +42,11 @@ export class ProductSelectorService extends StoreSelectors<Product>{
   }
   getProductsCount(): Observable<number> {
     return this.productsCount;
+  }
+  getProductsBrands(): Observable<string> {
+    return this.productsBrands;
+  }
+  getProductsTypes(): Observable<string> {
+    return this.productsTypes;
   }
 }

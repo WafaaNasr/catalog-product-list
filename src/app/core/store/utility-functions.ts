@@ -25,4 +25,12 @@ export function getEntitesPerPage<T>(state: Array<T>, pageIndex: number, pageSiz
   return state.slice(start, end);
 }
 
+export function pluck<T>(property: string, state: Array<T>): Array<any> {
+  if (!arguments) return state;
+  debugger;
+  if (state.length > 0) {
+    return Array.from(new Set(state.map(item => { if (item.hasOwnProperty(property)) return item[property] })));
+  }
+
+}
 //#endregion

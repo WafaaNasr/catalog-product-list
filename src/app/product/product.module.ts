@@ -12,6 +12,8 @@ import { ProductService } from './services/product.service';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { StarRatingModule } from 'angular-star-rating';
+import { ProductFilterComponent } from './components/product-filter/product-filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   imports: [
     CommonModule,
@@ -19,9 +21,10 @@ import { StarRatingModule } from 'angular-star-rating';
     EffectsModule.forFeature([ProductEffectsService]),
     SharedModule,
     NgxSpinnerModule,
-    StarRatingModule.forRoot()
+    StarRatingModule.forRoot(),
+    ReactiveFormsModule
   ],
-  declarations: [ProductItemComponent, ProductListComponent, ProductComponent],
+  declarations: [ProductItemComponent, ProductListComponent, ProductComponent, ProductFilterComponent],
   providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:3000' },
     ProductService],
   exports: [ProductComponent]

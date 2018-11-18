@@ -19,7 +19,7 @@
   /* medium size viewport */
   @media screen and (max-width: 959px) {
     /* Column Gap */
-    .productList > *:not(:last-child) {
+    .productList > * {
       margin-right: 32px;
       padding: 32px;
     }
@@ -35,8 +35,8 @@
       flex-direction: column;
       justify-content: flex-start;
     }
-    .productList > *:not(:last-child) {
-      margin-right: unset;
+    .productList > * {
+      margin-right: 32px;
       margin-bottom: 32px;
     }
   }

@@ -1,0 +1,19 @@
+<div class="filter-panel">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <p class="filter-header"> Filteration Panel</p>
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <mat-form-field class="filter-full-width">
+      <mat-select placeholder="Brand" [formControl]="brands" multiple>
+        <mat-option *ngFor="let brand of brands$ | async" [value]="brand">{{brand}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="filter-full-width">
+      <mat-select placeholder="product type" [formControl]="productTypes" multiple>
+        <mat-option *ngFor="let type of productTypes$ | async" [value]="type">{{type}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-expansion-panel>
+</div>

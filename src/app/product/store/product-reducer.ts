@@ -1,7 +1,7 @@
 import { ProductState, setInitailBaseState } from "./product-state";
 import { ProductListActions } from "./actions/product-actions";
 import { ProductListActionTypes } from "./actions/product-actions-types";
-import { getEntitesPerPage } from "src/app/core/store/utility-functions";
+import { getEntitesPerPage, pluck } from "src/app/core/store/utility-functions";
 
 export function productReducer(
     state: ProductState = setInitailBaseState(),
@@ -20,6 +20,8 @@ export function productReducer(
                 entitiesCount: newEntities.length,
                 shownEntities: [...newEntities],
                 productsFilter: { ...state.productsFilter },
+                productBrands: pluck('brand', [...newEntities]),
+                productTypes: pluck('type', [...newEntities]),
                 loading: false,
                 error: undefined,
                 loaded: true,
@@ -36,6 +38,8 @@ export function productReducer(
                 entitiesCount: state.entities.length,
                 shownEntities: [...showEntities],
                 productsFilter: { ...state.productsFilter },
+                productBrands: [...state.productBrands],
+                productTypes: [...state.productTypes],
                 loading: false,
                 error: undefined,
                 loaded: true,
