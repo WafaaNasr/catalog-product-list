@@ -1,7 +1,7 @@
 import { ProductService } from '../../services/product.service';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { catchError, mergeMap, map } from "rxjs/operators";
+import { catchError, mergeMap, map, delay, debounceTime } from "rxjs/operators";
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import { Action } from '@ngrx/store';
 import { ProductListActionTypes } from '../actions/product-actions-types';
@@ -19,6 +19,7 @@ export class ProductEffectsService {
   @Effect()
   productListLoadAll$: Observable<Action> = this.actions$.pipe(
     ofType<ProductListActions.ProductListLoadAll>(ProductListActionTypes.ProductListLoadAll)
+    , debounceTime(1000)
     , mergeMap(action => this.productService.loadAllProducts().pipe(
       map(data => {
         if (data) {

@@ -11,11 +11,12 @@ import { Observable } from 'rxjs';
 export class ProductSelectorService extends StoreSelectors<Product>{
 
   //#region Members
-  private featureSelector;
   private productsSelector;
   private productsFilter;
   //#endregion
 
+// Proberties
+  public featureSelector;
 
   constructor(store: Store<ProductState>) {
     super(store);

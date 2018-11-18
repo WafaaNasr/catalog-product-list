@@ -10,6 +10,7 @@ import { productReducer } from './store/product-reducer';
 import { BehaviorSubject } from 'rxjs';
 import { ProductService } from './services/product.service';
 import { SharedModule } from '../shared/shared.module';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 //export const SERVER_URL = new InjectionToken<string>('SERVERURL');
@@ -20,7 +21,8 @@ import { SharedModule } from '../shared/shared.module';
     CommonModule,
     StoreModule.forFeature('products', productReducer),
     EffectsModule.forFeature([ProductEffectsService]),
-    SharedModule
+    SharedModule,
+    NgxSpinnerModule
   ],
   declarations: [ProductItemComponent, ProductListComponent, ProductComponent],
   providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:3000' },
