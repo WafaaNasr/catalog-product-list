@@ -29,13 +29,12 @@ export function productReducer(
         }
         case ProductListActionTypes.ProductListLoadPerPage: {
             const allEnt = [...state.entities];
-            debugger
             const showEntities = getEntitesPerPage(allEnt, action.payload.pageIndex, action.payload.pageSize)
             return {
                 ...state,
                 entities: [...state.entities],
                 entitiesCount: state.entities.length,
-                shownEntities: [ ...showEntities ],
+                shownEntities: [...showEntities],
                 productsFilter: { ...state.productsFilter },
                 loading: false,
                 error: undefined,

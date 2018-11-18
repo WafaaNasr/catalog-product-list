@@ -20,7 +20,6 @@ export function addItem(state, obj) {
 
 export function getEntitesPerPage<T>(state: Array<T>, pageIndex: number, pageSize: number) {
   if (!arguments) return state;
-  debugger;
   const end = (pageIndex + 1) * pageSize;
   const start = pageIndex * pageSize;
   return state.slice(start, end);

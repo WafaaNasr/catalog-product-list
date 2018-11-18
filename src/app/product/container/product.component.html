@@ -5,6 +5,6 @@
     <app-product-list [productList]="products$"></app-product-list>
 </div>
 
-<mat-paginator #paginator [pageSize]="pageSize" [pageSizeOptions]="[5, 10, 20]" [showFirstLastButtons]="true" [length]="totalSize$ | async"
-    [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+<mat-paginator *ngIf="showPaginator" #paginator [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions"
+    [showFirstLastButtons]="true" [length]="totalSize$ | async" [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
 </mat-paginator>
