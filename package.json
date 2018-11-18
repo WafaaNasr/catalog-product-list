@@ -25,7 +25,9 @@
     "@ngrx/effects": "^6.1.2",
     "@ngrx/router-store": "^6.1.2",
     "@ngrx/store": "^6.1.2",
+    "angular-star-rating": "^4.0.0-beta.3",
     "core-js": "^2.5.4",
+    "css-star-rating": "^1.2.4",
     "ngx-spinner": "^6.1.2",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

@@ -1,11 +1,6 @@
 
 product ID : {{product.id}}
 <mat-card class="example-card">
-    <!-- <mat-card-header>
-        <div mat-card-avatar class="example-header-image"></div>
-        <mat-card-title>Shiba Inu</mat-card-title>
-        <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-    </mat-card-header> -->
     <img mat-card-image src="{{product.image}}" alt="Photo of a Shiba Inu">
     <mat-card-content>
         <strong>
@@ -15,7 +10,8 @@ product ID : {{product.id}}
             <p>Type: {{product.type}}</p>
             <p>Price: {{product.price}}</p>
             <p>Size: {{product.size}}</p>
-            <p>Rating: {{product.rating}}</p>
+            <star-rating   [readOnly]="true" 
+             [showHalfStars]="true"  [starType]="'svg'" [rating]="getItemRating(product.rating)" ></star-rating>
         </strong>
     </mat-card-content>
     <mat-card-actions>

@@ -11,18 +11,15 @@ import { BehaviorSubject } from 'rxjs';
 import { ProductService } from './services/product.service';
 import { SharedModule } from '../shared/shared.module';
 import { NgxSpinnerModule } from 'ngx-spinner';
-
-
-//export const SERVER_URL = new InjectionToken<string>('SERVERURL');
-
-
+import { StarRatingModule } from 'angular-star-rating';
 @NgModule({
   imports: [
     CommonModule,
     StoreModule.forFeature('products', productReducer),
     EffectsModule.forFeature([ProductEffectsService]),
     SharedModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    StarRatingModule.forRoot()
   ],
   declarations: [ProductItemComponent, ProductListComponent, ProductComponent],
   providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:3000' },
