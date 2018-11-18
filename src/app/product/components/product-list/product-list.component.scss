@@ -10,6 +10,7 @@
   }
   .productList > *:not(:last-child) {
     margin-right: 32px;
+    padding: 32px;
   }
   /* Item sizing */
   .productListItem {
@@ -20,6 +21,7 @@
     /* Column Gap */
     .productList > *:not(:last-child) {
       margin-right: 32px;
+      padding: 32px;
     }
     /* Item sizing */
     .productListItem {
