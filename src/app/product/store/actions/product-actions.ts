@@ -19,8 +19,13 @@ export class ProductListError implements Action {
     constructor(public payload: any) { }
 }
 
+export class ProductListLoadPerPage implements Action {
+    type = ProductListActionTypes.ProductListLoadPerPage;
+    constructor(public payload:any) { }
+}
 
 export type ProductListActions =
     ProductListLoadAll
     | ProductListLoadAllSucess
-    | ProductListError;
+    | ProductListError
+    | ProductListLoadPerPage;

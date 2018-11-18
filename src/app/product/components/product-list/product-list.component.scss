@@ -8,7 +8,7 @@
   .productList > * {
     box-sizing: border-box;
   }
-  .productList > *:not(:last-child) {
+  .productList > * {
     margin-right: 32px;
     padding: 32px;
   }

@@ -7,6 +7,8 @@ export class ProductState implements IBaseState<Product> {
     hasError: boolean;
     error: any;
     entities: Array<Product>;
+    entitiesCount:number;
+    shownEntities: Array<Product>;
     productsFilter: ProductsFilter;
     normalizedEntities?: { [id: number]: Product; };
 }
@@ -18,6 +20,8 @@ export function setInitailBaseState(): ProductState {
         hasError: false,
         error: null,
         entities: new Array<Product>(),
+        entitiesCount:0,
+        shownEntities: new Array<Product>(),
         productsFilter: { ...new ProductsFilter() },
         normalizedEntities: null
     })

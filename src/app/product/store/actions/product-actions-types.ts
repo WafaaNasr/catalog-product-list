@@ -3,5 +3,5 @@ export enum ProductListActionTypes {
     ProductListLoadAllSuccess = '[PRODUCTS] LOAD ALL SUCCESS',
     ProductListError = '[PRODUCTS] Error',
    ProductListLoadPerPage= '[PRODUCTS] LOAD PER PAGE',
-   ProductListLoadPerPageSuccess= '[PRODUCTS] LOAD PER PAGE SUCCESS'
+   
 }
