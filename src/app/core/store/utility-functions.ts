@@ -33,8 +33,7 @@ export function pluck<T>(property: string, state: Array<T>): Array<any> {
 }
 
 export function filter<T>(state: Array<T>, prop: string, valuesToCompare: Array<string>) {
-  debugger
-  if (valuesToCompare.hasOwnProperty(prop) && valuesToCompare[prop].length > 0)
+  if (valuesToCompare.hasOwnProperty(prop) && valuesToCompare[prop] && valuesToCompare[prop].length > 0)
     return [...state.filter(item => { return valuesToCompare[prop].some(data => data === item[prop]) })];
   return state;
 }

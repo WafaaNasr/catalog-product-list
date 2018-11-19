@@ -54,7 +54,6 @@ export function productReducer(
             };
         }
         case ProductListActionTypes.ProductListFilter: {
-            debugger
             const allEnt = [...state.entities];
             let filteredEntities = filter(allEnt, 'brand', action.payload || state.productsFilter.brand);
             filteredEntities = filter([...filteredEntities], 'type', action.payload || state.productsFilter.type);
