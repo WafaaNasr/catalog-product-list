@@ -1,6 +1,7 @@
-import { Product } from './../models/product';
 import { IBaseState } from 'src/app/core/store/ibase-state';
 import { ProductsFilter } from '../models/products-filters';
+import { SortType } from '../models/sort-type';
+import { Product } from '../models/product';
 export class ProductState implements IBaseState<Product> {
     loaded: boolean;
     loading: boolean;
@@ -16,6 +17,7 @@ export class ProductState implements IBaseState<Product> {
     currentPage: number;
     pageSize: number;
     normalizedEntities?: { [id: number]: Product; };
+    productsSortBy:SortType
 }
 
 export function setInitailBaseState(): ProductState {
@@ -33,6 +35,7 @@ export function setInitailBaseState(): ProductState {
         productsFilter: { ...new ProductsFilter() },
         currentPage: 0,
         pageSize: 0,
-        normalizedEntities: null
+        normalizedEntities: null,
+        productsSortBy:new SortType()
     })
 }

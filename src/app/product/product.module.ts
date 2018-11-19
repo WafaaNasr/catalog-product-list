@@ -14,6 +14,7 @@ import { NgxSpinnerModule } from 'ngx-spinner';
 import { StarRatingModule } from 'angular-star-rating';
 import { ProductFilterComponent } from './components/product-filter/product-filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ProductSortComponent } from './components/product-sort/product-sort.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -24,7 +25,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     StarRatingModule.forRoot(),
     ReactiveFormsModule
   ],
-  declarations: [ProductItemComponent, ProductListComponent, ProductComponent, ProductFilterComponent],
+  declarations: [ProductItemComponent, ProductListComponent, ProductComponent, ProductFilterComponent, ProductSortComponent],
   providers: [{ provide: 'SERVER_URL', useValue: 'http://localhost:3000' },
     ProductService],
   exports: [ProductComponent]

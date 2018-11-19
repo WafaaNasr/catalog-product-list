@@ -1,3 +1,4 @@
+import { SortType } from './../../models/sort-type';
 import { ProductsFilter } from './../../models/products-filters';
 import { Action } from "@ngrx/store";
 import { ProductListActionTypes } from "./product-actions-types";
@@ -29,8 +30,15 @@ export class ProductListFilter implements Action {
     type = ProductListActionTypes.ProductListFilter;
     constructor(public payload: ProductsFilter) { }
 }
+
+export class ProductListSort implements Action {
+    type = ProductListActionTypes.ProductListSort;
+    constructor(public payload: SortType) { }
+}
 export type ProductListActions =
     ProductListLoadAll
     | ProductListLoadAllSucess
     | ProductListError
-    | ProductListLoadPerPage;
+    | ProductListLoadPerPage
+    | ProductListFilter
+    | ProductListSort;

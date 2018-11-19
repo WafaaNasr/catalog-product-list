@@ -1,5 +1,6 @@
+import { SortType } from './../../models/sort-type';
 import { ProductsFilter } from './../../models/products-filters';
-import { ProductListLoadAll, ProductListLoadPerPage, ProductListFilter } from '../actions/product-actions';
+import { ProductListLoadAll, ProductListLoadPerPage, ProductListFilter, ProductListSort } from '../actions/product-actions';
 import { Product } from '../../models/product';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -18,6 +19,10 @@ export class ProductDispatcherService {
   }
   public dispatchFilterByBrands(filter: ProductsFilter) {
     this.store.dispatch(new ProductListFilter(filter));
+  }
+
+  public dispatchProductSortBy(SortBy: SortType) {
+    this.store.dispatch(new ProductListSort(SortBy));
   }
 
 }

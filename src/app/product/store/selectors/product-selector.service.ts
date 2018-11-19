@@ -1,3 +1,4 @@
+import { SortType } from './../../models/sort-type';
 import { ProductState } from './../product-state';
 import { Product } from './../../models/product';
 import { Injectable } from '@angular/core';
@@ -18,6 +19,7 @@ export class ProductSelectorService extends StoreSelectors<Product>{
   private productsCount;
   private productsBrands;
   private productsTypes;
+  private productsSortBy;
   //#endregion
 
   // Proberties
@@ -32,6 +34,7 @@ export class ProductSelectorService extends StoreSelectors<Product>{
     this.productsCount = this.getProperty(this.featureSelector, 'entitiesCount');
     this.productsBrands = this.getProperty(this.featureSelector, 'productBrands');
     this.productsTypes = this.getProperty(this.featureSelector, 'productTypes');
+    this.productsSortBy = this.getProperty(this.featureSelector, 'productsSortBy');
   }
 
 
@@ -53,5 +56,9 @@ export class ProductSelectorService extends StoreSelectors<Product>{
 
   getProductsFilters(): Observable<ProductsFilter> {
     return this.productsFilter;
+  }
+
+  getProductsSortBy(): Observable<SortType> {
+    return this.productsSortBy;
   }
 }

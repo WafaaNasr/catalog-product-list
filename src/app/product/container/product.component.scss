@@ -7,3 +7,9 @@
 .mat-paginator {
 background: #ecdbe9;
 }
+.sort-panel {
+    display: flex;
+    justify-content: flex-end; 
+    flex-grow: 3;
+    background: #fdf7ff;
+}

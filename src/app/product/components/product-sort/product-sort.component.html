@@ -1,0 +1,7 @@
+<mat-form-field> 
+  <mat-select placeholder="Sort by" [(value)]="sortFormCont" name="type"  (openedChange)="openedChange($event)">
+    <mat-option *ngFor="let type of sortByTypes" [value]="type.value"  >
+      {{type.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>

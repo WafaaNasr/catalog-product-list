@@ -3,5 +3,6 @@ export enum ProductListActionTypes {
     ProductListLoadAllSuccess = '[PRODUCTS] LOAD ALL SUCCESS',
     ProductListError = '[PRODUCTS] Error',
     ProductListLoadPerPage = '[PRODUCTS] LOAD PER PAGE',
-    ProductListFilter = "[PRODUCTS] FILTER"
+    ProductListFilter = "[PRODUCTS] FILTERATION",
+    ProductListSort = "[PRODUCTS] SORTING"
 }

@@ -1,7 +1,7 @@
 import { ProductState, setInitailBaseState } from "./product-state";
 import { ProductListActions } from "./actions/product-actions";
 import { ProductListActionTypes } from "./actions/product-actions-types";
-import { getEntitesPerPage, pluck, filter } from "src/app/core/store/utility-functions";
+import { getEntitesPerPage, pluck, filter, dynamicSort } from "src/app/core/store/utility-functions";
 
 export function productReducer(
     state: ProductState = setInitailBaseState(),
@@ -30,6 +30,7 @@ export function productReducer(
                 currentPage: state.currentPage,
                 pageSize: state.pageSize,
                 normalizedEntities: null,
+                productsSortBy: { ...state.productsSortBy }
             };
         }
         case ProductListActionTypes.ProductListLoadPerPage: {
@@ -51,13 +52,13 @@ export function productReducer(
                 currentPage: action.payload.pageIndex,
                 pageSize: action.payload.pageSize,
                 normalizedEntities: null,
+                productsSortBy: { ...state.productsSortBy }
             };
         }
         case ProductListActionTypes.ProductListFilter: {
             const allEnt = [...state.entities];
             let filteredEntities = filter(allEnt, 'brand', action.payload || state.productsFilter.brand);
             filteredEntities = filter([...filteredEntities], 'type', action.payload || state.productsFilter.type);
-
             const showEntities = getEntitesPerPage([...filteredEntities], state.currentPage, state.pageSize);
 
             return {
@@ -74,6 +75,30 @@ export function productReducer(
                 loaded: true,
                 hasError: false,
                 normalizedEntities: null,
+                productsSortBy: { ...state.productsSortBy }
+            };
+        }
+        case ProductListActionTypes.ProductListSort: {
+            debugger
+            const allEnt = [...state.filteredEntities];
+            let sortedEntities = [...allEnt.sort(dynamicSort(action.payload['value']))];
+            const showEntities = getEntitesPerPage([...sortedEntities], state.currentPage, state.pageSize);
+
+            return {
+                ...state,
+                entities: [...state.entities],
+                entitiesCount: state.entities.length,
+                shownEntities: [...showEntities],
+                filteredEntities: sortedEntities,
+                productsFilter: { ...action.payload },
+                productBrands: [...state.productBrands],
+                productTypes: [...state.productTypes],
+                loading: false,
+                error: undefined,
+                loaded: true,
+                hasError: false,
+                normalizedEntities: null,
+                productsSortBy: { ...action.payload }
             };
         }
         case ProductListActionTypes.ProductListError: {
@@ -89,10 +114,10 @@ export function productReducer(
                 shownEntities: [],
                 productsFilter: null,
                 error: action.payload,
-                normalizedEntities: null
+                normalizedEntities: null,
+                productsSortBy: null
             });
         }
-
     }
 
     return state
