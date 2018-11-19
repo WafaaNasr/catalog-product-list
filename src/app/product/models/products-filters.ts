@@ -1,10 +1,10 @@
 export class ProductsFilter {
 
-    isFilter: boolean;
-    ids: Array<string>;
-    text: string;
+    brand: Array<string>;
+    type: Array<string>;
+
     constructor() {
-        this.isFilter = false;
-        this.ids = new Array<string>()
+        this.brand = new Array<string>()
+        this.type = new Array<string>()
     }
 }

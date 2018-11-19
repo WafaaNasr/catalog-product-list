@@ -1,4 +1,5 @@
-import { ProductListLoadAll, ProductListLoadPerPage } from '../actions/product-actions';
+import { ProductsFilter } from './../../models/products-filters';
+import { ProductListLoadAll, ProductListLoadPerPage, ProductListFilter } from '../actions/product-actions';
 import { Product } from '../../models/product';
 import { Injectable } from '@angular/core';
 import { Store } from '@ngrx/store';
@@ -7,7 +8,6 @@ import { Store } from '@ngrx/store';
   providedIn: 'root'
 })
 export class ProductDispatcherService {
-
   constructor(private store: Store<Product>) { }
 
   public dispatchLoadAll() {
@@ -15,6 +15,9 @@ export class ProductDispatcherService {
   }
   public dispatchLoadShownEntities(pageIndex: number, pageSize: number) {
     this.store.dispatch(new ProductListLoadPerPage({ pageIndex: pageIndex, pageSize: pageSize }));
+  }
+  public dispatchFilterByBrands(filter: ProductsFilter) {
+    this.store.dispatch(new ProductListFilter(filter));
   }
 
 }

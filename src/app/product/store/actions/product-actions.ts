@@ -1,3 +1,4 @@
+import { ProductsFilter } from './../../models/products-filters';
 import { Action } from "@ngrx/store";
 import { ProductListActionTypes } from "./product-actions-types";
 import { Product } from "../../models/product";
@@ -21,9 +22,13 @@ export class ProductListError implements Action {
 
 export class ProductListLoadPerPage implements Action {
     type = ProductListActionTypes.ProductListLoadPerPage;
-    constructor(public payload:any) { }
+    constructor(public payload: any) { }
 }
 
+export class ProductListFilter implements Action {
+    type = ProductListActionTypes.ProductListFilter;
+    constructor(public payload: ProductsFilter) { }
+}
 export type ProductListActions =
     ProductListLoadAll
     | ProductListLoadAllSucess

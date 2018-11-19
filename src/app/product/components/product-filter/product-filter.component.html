@@ -6,12 +6,13 @@
       </mat-panel-title>
     </mat-expansion-panel-header>
     <mat-form-field class="filter-full-width">
-      <mat-select placeholder="Brand" [formControl]="brands" multiple>
-        <mat-option *ngFor="let brand of brands$ | async" [value]="brand">{{brand}}</mat-option>
+      <mat-select placeholder="Brand" [formControl]="brandsFormCon" multiple selected="selectedBrands"  (openedChange)="brandOpenedChange($event)">
+        <mat-option *ngFor="let brand of brands$ | async" [value]="brand" >{{brand}}</mat-option>
       </mat-select>
     </mat-form-field>
     <mat-form-field class="filter-full-width">
-      <mat-select placeholder="product type" [formControl]="productTypes" multiple>
+      <mat-select placeholder="product type" [formControl]="productTypesFormCon" multiple
+      selected="selectedTypes"  (openedChange)="typeOpenedChange($event)">
         <mat-option *ngFor="let type of productTypes$ | async" [value]="type">{{type}}</mat-option>
       </mat-select>
     </mat-form-field>

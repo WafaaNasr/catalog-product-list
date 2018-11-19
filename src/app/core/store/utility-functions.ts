@@ -27,10 +27,15 @@ export function getEntitesPerPage<T>(state: Array<T>, pageIndex: number, pageSiz
 
 export function pluck<T>(property: string, state: Array<T>): Array<any> {
   if (!arguments) return state;
-  debugger;
   if (state.length > 0) {
     return Array.from(new Set(state.map(item => { if (item.hasOwnProperty(property)) return item[property] })));
   }
+}
 
+export function filter<T>(state: Array<T>, prop: string, valuesToCompare: Array<string>) {
+  debugger
+  if (valuesToCompare.hasOwnProperty(prop) && valuesToCompare[prop].length > 0)
+    return [...state.filter(item => { return valuesToCompare[prop].some(data => data === item[prop]) })];
+  return state;
 }
 //#endregion

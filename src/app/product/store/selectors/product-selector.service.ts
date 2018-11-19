@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { StoreSelectors } from 'src/app/core/store/app-store-selectors';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { ProductsFilter } from '../../models/products-filters';
 
 @Injectable({
   providedIn: 'root'
@@ -48,5 +49,9 @@ export class ProductSelectorService extends StoreSelectors<Product>{
   }
   getProductsTypes(): Observable<string> {
     return this.productsTypes;
+  }
+
+  getProductsFilters(): Observable<ProductsFilter> {
+    return this.productsFilter;
   }
 }

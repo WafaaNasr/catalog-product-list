@@ -3,8 +3,9 @@ import { ProductSelectorService } from './../store/selectors/product-selector.se
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
 import { ProductDispatcherService } from '../store/dispatcher/product-dispatcher.service';
 import { Product } from '../models/product';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { MatPaginator } from '@angular/material';
 
 @Component({
   selector: 'app-product',
@@ -21,10 +22,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   private productsTypes$: Observable<string>;
 
   private pageSizeOptions: Array<number> = [5, 10, 20];
-  private pageSize: number = 10;
+  private pageSize$: BehaviorSubject<number>;
   private currentPage: number = 0;
   private showPaginator: boolean = false;
   private subscription: Subscription;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
   //#endregion
 
   constructor(private productDispatcher: ProductDispatcherService,
@@ -32,6 +34,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     private spinner: NgxSpinnerService) { }
 
   ngOnInit() {
+    this.pageSize$ = new BehaviorSubject(5);
     this.spinner.show();
     this.spinLoaderForProducts();
     this.productDispatcher.dispatchLoadAll();
@@ -43,9 +46,8 @@ export class ProductComponent implements OnInit, OnDestroy {
         if (value) {
           this.spinner.hide();
           this.showPaginator = true
-          this.productDispatcher.dispatchLoadShownEntities(this.currentPage, this.pageSize);
+          this.productDispatcher.dispatchLoadShownEntities(this.currentPage, this.pageSize$.getValue());
           this.initializeSelectors();
-
         } else {
           this.spinner.show();
           this.showPaginator = false;
@@ -61,8 +63,8 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   public handlePage(e: any) {
     this.currentPage = e.pageIndex;
-    this.pageSize = e.pageSize;
-    this.productDispatcher.dispatchLoadShownEntities(this.currentPage, this.pageSize);
+    this.pageSize$.next(e.pageSize);
+    this.productDispatcher.dispatchLoadShownEntities(this.currentPage, this.pageSize$.getValue());
   }
   ngOnDestroy(): void {
     this.subscription.unsubscribe();
