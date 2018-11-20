@@ -1,0 +1,14 @@
+<mat-card tabindex="0" class="product-card">
+    <img mat-card-image src="{{product.image}}" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+        <div class="item-detail">
+            <strong>
+                <span class="item-brand">{{product.brand}}</span>
+                <span class="item-name">{{getItemName(product.name,product.type, product.brand)}}</span>
+                <span class="item-type">{{product.type}}</span>
+            </strong>
+            <p class="item-prize-size">from  {{getProductPrice(product.price)}} € / {{product.size}}</p>
+            <star-rating [readOnly]="true" [showHalfStars]="true" [starType]="'svg'" [rating]="getItemRating(product.rating)"></star-rating>
+        </div>
+    </mat-card-content>
+</mat-card>

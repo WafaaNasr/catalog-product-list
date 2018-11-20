@@ -1,0 +1,13 @@
+
+    <ngx-spinner bdColor="rgba(206,204,206,0.8)" size="medium" color="#5c1e62" type="ball-clip-rotate-pulse"></ngx-spinner>
+    <app-product-filter [brands]="productsBrands$" [productTypes]="productsTypes$" *ngIf="showPaginator"></app-product-filter>
+    <div class="sort-panel">
+        <app-product-sort *ngIf="showPaginator"></app-product-sort>
+    </div>
+    <div class="products">
+        <app-product-list [productList]="products$" [loaded]="showPaginator"></app-product-list>
+    </div>
+    <mat-paginator *ngIf="showPaginator" #paginator [pageSize]="pageSize$.getValue()" [pageSizeOptions]="pageSizeOptions"
+        [showFirstLastButtons]="(  (pageSize$.getValue())  !== (totalSize$ | async) )" [length]="totalSize$ | async"
+        [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">
+    </mat-paginator>

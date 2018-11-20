@@ -1,0 +1,33 @@
+.product-card {
+    max-width: 250px;
+    padding: 20px;
+  }
+.item-detail{
+cursor: pointer;
+  line-height: 1.5;
+}
+
+.item-brand{  
+  color: #292929;
+  text-align: center;
+  display: block;
+  padding-bottom: 20px;
+}
+.item-name{
+  background: #fff;
+  color: #292929;
+  text-align: center;
+  display: block;
+}
+
+.item-type{
+  display: block;
+  text-align: center;
+  color: #737373;
+  padding-bottom: 7px;
+}
+
+.item-prize-size{
+    display: block;
+  text-align: center;
+}
