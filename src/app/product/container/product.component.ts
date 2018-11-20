@@ -1,11 +1,12 @@
 import { ProductListLoadPerPage } from './../store/actions/product-actions';
 import { ProductSelectorService } from './../store/selectors/product-selector.service';
-import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
 import { ProductDispatcherService } from '../store/dispatcher/product-dispatcher.service';
 import { Product } from '../models/product';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MatPaginator } from '@angular/material';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
@@ -13,8 +14,6 @@ import { MatPaginator } from '@angular/material';
   styleUrls: ['./product.component.scss']
 })
 export class ProductComponent implements OnInit, OnDestroy {
-
-
   //#region Members
   private products$: Observable<Array<Product>>;
   private totalSize$: Observable<number>;
@@ -26,7 +25,6 @@ export class ProductComponent implements OnInit, OnDestroy {
   private currentPage: number = 0;
   private showPaginator: boolean = false;
   private subscription: Subscription;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
   //#endregion
 
   constructor(private productDispatcher: ProductDispatcherService,
@@ -56,12 +54,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   }
   initializeSelectors() {
     this.products$ = this.productSelector.getProductsPerPage();
-    this.totalSize$ = this.productSelector.getProductsCount();
     this.productsBrands$ = this.productSelector.getProductsBrands();
     this.productsTypes$ = this.productSelector.getProductsTypes();
+    this.totalSize$ = this.productSelector.getProductsCount();
   }
-
-  public handlePage(e: any) {
+  handlePage(e: any) {
     this.currentPage = e.pageIndex;
     this.pageSize$.next(e.pageSize);
     this.productDispatcher.dispatchLoadShownEntities(this.currentPage, this.pageSize$.getValue());

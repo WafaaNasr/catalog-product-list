@@ -39,7 +39,7 @@ export function productReducer(
             return {
                 ...state,
                 entities: [...state.entities],
-                entitiesCount: state.entities.length,
+                entitiesCount: state.filteredEntities.length,
                 shownEntities: [...showEntities],
                 productsFilter: { ...state.productsFilter },
                 filteredEntities: [...state.filteredEntities],
@@ -64,7 +64,7 @@ export function productReducer(
             return {
                 ...state,
                 entities: [...state.entities],
-                entitiesCount: state.entities.length,
+                entitiesCount: filteredEntities.length,
                 shownEntities: [...showEntities],
                 filteredEntities: [...filteredEntities],
                 productsFilter: { ...action.payload },
@@ -82,11 +82,10 @@ export function productReducer(
             const allEnt = [...state.filteredEntities];
             let sortedEntities = [...allEnt.sort(dynamicSort(action.payload['value']))];
             const showEntities = getEntitesPerPage([...sortedEntities], state.currentPage, state.pageSize);
-
             return {
                 ...state,
                 entities: [...state.entities],
-                entitiesCount: state.entities.length,
+                entitiesCount: sortedEntities.length,
                 shownEntities: [...showEntities],
                 filteredEntities: sortedEntities,
                 productsFilter: { ...action.payload },
