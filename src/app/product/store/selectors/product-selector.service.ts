@@ -20,6 +20,7 @@ export class ProductSelectorService extends StoreSelectors<Product>{
   private productsBrands;
   private productsTypes;
   private productsSortBy;
+  private showNoFiltItems;
   //#endregion
 
   // Proberties
@@ -35,6 +36,7 @@ export class ProductSelectorService extends StoreSelectors<Product>{
     this.productsBrands = this.getProperty(this.featureSelector, 'productBrands');
     this.productsTypes = this.getProperty(this.featureSelector, 'productTypes');
     this.productsSortBy = this.getProperty(this.featureSelector, 'productsSortBy');
+    this.showNoFiltItems = this.getProperty(this.featureSelector, 'showNoFiltItems');
   }
 
 
@@ -60,5 +62,9 @@ export class ProductSelectorService extends StoreSelectors<Product>{
 
   getProductsSortBy(): Observable<SortType> {
     return this.productsSortBy;
+  }
+  
+  getShowNoFiltItems(): Observable<boolean> {
+    return this.showNoFiltItems;
   }
 }

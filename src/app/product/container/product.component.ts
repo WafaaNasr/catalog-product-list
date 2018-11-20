@@ -17,6 +17,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   private totalSize$: Observable<number>;
   private productsBrands$: Observable<string>;
   private productsTypes$: Observable<string>;
+  private showNoFiltItems$: Observable<boolean>;
+
 
   private pageSizeOptions: Array<number> = [5, 10, 20];
   private pageSize$: BehaviorSubject<number>;
@@ -55,6 +57,7 @@ export class ProductComponent implements OnInit, OnDestroy {
     this.productsBrands$ = this.productSelector.getProductsBrands();
     this.productsTypes$ = this.productSelector.getProductsTypes();
     this.totalSize$ = this.productSelector.getProductsCount();
+    this.showNoFiltItems$=this.productSelector.getShowNoFiltItems();
   }
   handlePage(e: any) {
     this.currentPage = e.pageIndex;
