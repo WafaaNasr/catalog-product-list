@@ -79,7 +79,6 @@ export function productReducer(
             };
         }
         case ProductListActionTypes.ProductListSort: {
-            debugger
             const allEnt = [...state.filteredEntities];
             let sortedEntities = [...allEnt.sort(dynamicSort(action.payload['value']))];
             const showEntities = getEntitesPerPage([...sortedEntities], state.currentPage, state.pageSize);

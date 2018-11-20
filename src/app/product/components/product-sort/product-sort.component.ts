@@ -20,12 +20,10 @@ export class ProductSortComponent implements OnInit {
   }
   openedChange(isOpen) {
     if (!isOpen) {
-      debugger
       let viewValue = '';
       if (this.sortFormCont)
         viewValue = this.sortByTypes.find(item => item.value === this.sortFormCont).viewValue;
       this.productSelector.getProductsSortBy().subscribe(value => {
-        debugger
         if (this.sortFormCont !== value.value) {
           this.productDispatcher.dispatchProductSortBy({
             value: this.sortFormCont,
