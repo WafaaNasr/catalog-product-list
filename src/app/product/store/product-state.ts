@@ -14,6 +14,7 @@ export class ProductState implements IBaseState<Product> {
     shownEntities: Array<Product>;
     filteredEntities: Array<Product>;
     productsFilter: ProductsFilter;
+    showNoFiltItems:Boolean;
     currentPage: number;
     pageSize: number;
     normalizedEntities?: { [id: number]: Product; };
@@ -36,6 +37,7 @@ export function setInitailBaseState(): ProductState {
         currentPage: 0,
         pageSize: 0,
         normalizedEntities: null,
-        productsSortBy:new SortType()
+        productsSortBy:new SortType(),
+        showNoFiltItems:false
     })
 }

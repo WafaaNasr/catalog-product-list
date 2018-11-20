@@ -7,6 +7,8 @@
     <div class="products">
         <app-product-list [productList]="products$" [loaded]="showPaginator"></app-product-list>
     </div>
+    <p class="no-items" *ngIf="showNoFiltItems$ | async">Sorry, we couldn't find any results matching your filteration!</p>
+
     <mat-paginator *ngIf="showPaginator" #paginator [pageSize]="pageSize$.getValue()" [pageSizeOptions]="pageSizeOptions"
         [showFirstLastButtons]="(  (pageSize$.getValue())  !== (totalSize$ | async) )" [length]="totalSize$ | async"
         [pageIndex]="currentPage" (page)="pageEvent = handlePage($event)">

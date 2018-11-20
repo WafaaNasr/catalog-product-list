@@ -30,7 +30,8 @@ export function productReducer(
                 currentPage: state.currentPage,
                 pageSize: state.pageSize,
                 normalizedEntities: null,
-                productsSortBy: { ...state.productsSortBy }
+                productsSortBy: { ...state.productsSortBy },
+                showNoFiltItems: state.showNoFiltItems
             };
         }
         case ProductListActionTypes.ProductListLoadPerPage: {
@@ -52,7 +53,9 @@ export function productReducer(
                 currentPage: action.payload.pageIndex,
                 pageSize: action.payload.pageSize,
                 normalizedEntities: null,
-                productsSortBy: { ...state.productsSortBy }
+                productsSortBy: { ...state.productsSortBy },
+                showNoFiltItems: state.showNoFiltItems
+
             };
         }
         case ProductListActionTypes.ProductListFilter: {
@@ -77,7 +80,8 @@ export function productReducer(
                 loaded: true,
                 hasError: false,
                 normalizedEntities: null,
-                productsSortBy: { ...state.productsSortBy }
+                productsSortBy: { ...state.productsSortBy },
+                showNoFiltItems: filteredEntities.length === 0
             };
         }
         case ProductListActionTypes.ProductListSort: {
@@ -98,7 +102,8 @@ export function productReducer(
                 loaded: true,
                 hasError: false,
                 normalizedEntities: null,
-                productsSortBy: { ...action.payload }
+                productsSortBy: { ...action.payload },
+                showNoFiltItems: state.showNoFiltItems                
             };
         }
         case ProductListActionTypes.ProductListError: {
@@ -115,7 +120,8 @@ export function productReducer(
                 productsFilter: null,
                 error: action.payload,
                 normalizedEntities: null,
-                productsSortBy: null
+                productsSortBy: null,
+                showNoFiltItems: false     
             });
         }
     }

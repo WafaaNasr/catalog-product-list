@@ -8,16 +8,17 @@ You need to install
 -Angular Cli version 6
 
 ## Installing
- Install  project dependencies.
+- Clone the project
+-  Install  project dependencies.
 
 ## How to run
 
 - Navigate to the project folder  
-- Go to server folder
-- Open Command Line Prompt
+- Go to the server folder
+- Open OS Command Line Prompt
 - Run `json-server --watch db.json`, to enable fake json server
 - Go back to the project folder again
-- Open new Command Line Prompt
+- Open OS new Command Line Prompt
 - Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. 
 
 ## Running unit tests
