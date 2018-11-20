@@ -43,7 +43,6 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   typeOpenedChange(isOpen) {
     if (!isOpen) {
       if (this.productTypesFormCon != null) {
-        debugger;
         this.productDispatcher.dispatchFilter({ brand: [...this.productsFilter.brand], type: this.productTypesFormCon.value });
       }
     }
