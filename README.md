@@ -4,12 +4,15 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Prerequisites
 You need to install
 
--Node.js
--Angular Cli version 6
+- Node.js
+- Angular Cli version 6
 
 ## Installing
-- Clone the project
+
+-  Clone the project
 -  Install  project dependencies.
+-  Open OS Command Line Prompt
+-  Run `npm install -g json-server`
 
 ## How to run
 
