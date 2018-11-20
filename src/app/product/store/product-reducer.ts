@@ -88,7 +88,7 @@ export function productReducer(
                 entitiesCount: sortedEntities.length,
                 shownEntities: [...showEntities],
                 filteredEntities: sortedEntities,
-                productsFilter: { ...action.payload },
+                productsFilter: { ...state.productsFilter },
                 productBrands: [...state.productBrands],
                 productTypes: [...state.productTypes],
                 loading: false,

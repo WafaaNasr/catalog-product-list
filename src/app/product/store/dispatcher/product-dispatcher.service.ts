@@ -17,7 +17,7 @@ export class ProductDispatcherService {
   public dispatchLoadShownEntities(pageIndex: number, pageSize: number) {
     this.store.dispatch(new ProductListLoadPerPage({ pageIndex: pageIndex, pageSize: pageSize }));
   }
-  public dispatchFilterByBrands(filter: ProductsFilter) {
+  public dispatchFilter(filter: ProductsFilter) {
     this.store.dispatch(new ProductListFilter(filter));
   }
 

@@ -36,14 +36,15 @@ export class ProductFilterComponent implements OnInit, OnDestroy {
   brandOpenedChange(isOpen) {
     if (!isOpen) {
       if (this.brandsFormCon.value) {
-        this.productDispatcher.dispatchFilterByBrands({ brand: this.brandsFormCon.value, type: [...this.productsFilter.type] });
+        this.productDispatcher.dispatchFilter({ brand: this.brandsFormCon.value, type: [...this.productsFilter.type] });
       }
     }
   }
   typeOpenedChange(isOpen) {
     if (!isOpen) {
       if (this.productTypesFormCon != null) {
-        this.productDispatcher.dispatchFilterByBrands({ brand: [...this.productsFilter.brand], type: this.productTypesFormCon.value });
+        debugger;
+        this.productDispatcher.dispatchFilter({ brand: [...this.productsFilter.brand], type: this.productTypesFormCon.value });
       }
     }
   }
