@@ -32,12 +32,20 @@ export function pluck<T>(property: string, state: Array<T>): Array<any> {
   }
 }
 
+export function filterAll<T>(state: Array<T>, filterObj: any) {
+  const props = Object.keys(filterObj);
+  props.forEach(prop => {
+    return [...state.filter(item => { return filterObj[prop].some(data => data === item[prop]) })];
+  });
+  return state;
+}
+
 export function filter<T>(state: Array<T>, prop: string, valuesToCompare: Array<string>) {
   if (valuesToCompare.hasOwnProperty(prop) && valuesToCompare[prop] && valuesToCompare[prop].length > 0)
     return [...state.filter(item => { return valuesToCompare[prop].some(data => data === item[prop]) })];
   return state;
 }
-export function dynamicSort(property:string) {
+export function dynamicSort(property: string) {
   let sortOrder = 1;
   if (property[0] === "-") {
     sortOrder = -1;
