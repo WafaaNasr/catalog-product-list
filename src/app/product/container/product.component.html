@@ -5,7 +5,7 @@
         <app-product-sort *ngIf="showPaginator"></app-product-sort>
     </div>
     <div class="products">
-        <app-product-list [productList]="products$"></app-product-list>
+        <app-product-list [productList]="products$" [loaded]="showPaginator"></app-product-list>
     </div>
     <mat-paginator *ngIf="showPaginator" #paginator [pageSize]="pageSize$.getValue()" [pageSizeOptions]="pageSizeOptions"
         [showFirstLastButtons]="(  (pageSize$.getValue())  !== (totalSize$ | async) )" [length]="totalSize$ | async"

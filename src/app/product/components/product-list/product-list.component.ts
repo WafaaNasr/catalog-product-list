@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 export class ProductListComponent implements OnInit {
 
   @Input('productList') productList$: Observable<Array<Product>>;
-
+  @Input('loaded') loaded: Boolean;
   constructor() { }
 
   ngOnInit() {

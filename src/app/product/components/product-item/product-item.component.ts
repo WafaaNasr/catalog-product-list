@@ -17,8 +17,12 @@ export class ProductItemComponent implements OnInit {
   getItemRating(rating) {
     return rating / 20;
   }
-  getItemName(name: string, brand: string) {
-    var nameOnly = name.split(brand)[0];
-    return nameOnly;
+  getItemName(name: string, type: string, brand: string) {
+    const  nameWithoutBrand = name.split(brand)[1];
+    const  nameWithoutType= nameWithoutBrand.split(type)[0];
+    return nameWithoutType;
+  }
+  getProductPrice(price){
+    return price/100;
   }
 }
