@@ -1,5 +1,4 @@
-import { FormControl } from '@angular/forms';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SortTypes } from '../../models/sort-type';
 import { ProductSelectorService } from '../../store/selectors/product-selector.service';
 import { ProductDispatcherService } from '../../store/dispatcher/product-dispatcher.service';
@@ -7,7 +6,8 @@ import { ProductDispatcherService } from '../../store/dispatcher/product-dispatc
 @Component({
   selector: 'app-product-sort',
   templateUrl: './product-sort.component.html',
-  styleUrls: ['./product-sort.component.scss']
+  styleUrls: ['./product-sort.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductSortComponent implements OnInit {
 

@@ -61,7 +61,7 @@ export function productReducer(
             filteredEntities = filter([...filteredEntities], 'type', action.payload || state.productsFilter.type);
             if (state.productsSortBy && state.productsSortBy['value'])
                 filteredEntities = [...filteredEntities.sort(dynamicSort(state.productsSortBy['value']))];
-
+                debugger;
             const showEntities = getEntitesPerPage([...filteredEntities], state.currentPage, state.pageSize);
 
             return {

@@ -1,17 +1,15 @@
-import { ProductListLoadPerPage } from './../store/actions/product-actions';
 import { ProductSelectorService } from './../store/selectors/product-selector.service';
-import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit } from '@angular/core';
+import { Component, OnInit, ViewChild, OnDestroy, AfterViewInit, ChangeDetectionStrategy } from '@angular/core';
 import { ProductDispatcherService } from '../store/dispatcher/product-dispatcher.service';
 import { Product } from '../models/product';
 import { Observable, Subscription, BehaviorSubject } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { MatPaginator } from '@angular/material';
-import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
-  styleUrls: ['./product.component.scss']
+  styleUrls: ['./product.component.scss'],
+ // changeDetection: ChangeDetectionStrategy.OnPush  
 })
 export class ProductComponent implements OnInit, OnDestroy {
   //#region Members

@@ -11,7 +11,7 @@ import { ProductSelectorService } from '../../store/selectors/product-selector.s
   selector: 'app-product-filter',
   templateUrl: './product-filter.component.html',
   styleUrls: ['./product-filter.component.scss'],
-  //changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProductFilterComponent implements OnInit, OnDestroy {
 
